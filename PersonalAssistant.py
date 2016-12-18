@@ -1,22 +1,26 @@
 import speech_recognition as sr
-from os import path
-from pprint import pprint
+import pprint
 
-AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "test.wav")
+KEY = "AIzaSyDhIrlQru9lkHTRgQk4WLBErPptHjfOUDk"
+KEY_BING = "e93f74f4ef204c459d79162d9fa3dd76"
+KEY_BING2 = "86ab65dede4c41eea14c315ad098ca83"
 
-r = sr.Recognizer()
+def callback(recognizer, audio):
+    try:
+        print "listening"
+        res = recognizer.recognize_bing(audio, key = KEY_BING2, show_all=False)
+        print "You said: " + res
 
-with sr.AudioFile(AUDIO_FILE) as source:
-    audio = r.record(source) # read the entire audio file
+        if res == "stop":
+            print "This will stop the function"
+    except LookupError:
+        # Fix this to ask the user to repeat the question
+        print("Oops! Didn't catch that")
+    except sr.UnknownValueError:
+        print "Unknown value"
+        
+recognizer = sr.Recognizer()
+recognizer.listen_in_background(sr.Microphone(), callback)
 
-
-try:
-    # for testing purposes, we're just using the default API key
-    # to use another API key, use `r.recognize_google(audio, key="GOOGLE_SPEECH_RECOGNITION_API_KEY")`
-    # instead of `r.recognize_google(audio)`
-    print("Google Speech Recognition thinks you said ")
-    pprint(r.recognize_google(audio, show_all=True))
-except sr.UnknownValueError:
-    print("Google Speech Recognition could not understand audio")
-except sr.RequestError as e:
-    print("Could not request results from Google Speech Recognition service; {0}".format(e))
+while True:
+    pass
