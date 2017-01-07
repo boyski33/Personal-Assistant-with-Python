@@ -1,5 +1,5 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QPushButton, QGroupBox, QDialog, QVBoxLayout
+from PyQt5 import QtWidgets
 from PyQt5.QtCore import pyqtSlot
  
 class App(QDialog):

@@ -1,6 +1,6 @@
 import json, requests, re, urllib2
-from google import search
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
+from google_search import *
 
 #not tested
 def get_wiki_title(voice_input):
