@@ -1,4 +1,4 @@
-import pyglet
+import pyglet, os
 from gtts import gTTS
 
 class SpeechUtil(object):
@@ -8,8 +8,9 @@ class SpeechUtil(object):
 
     def read_the_given_text(self, passed_text):
         text = gTTS(text=passed_text, lang='en')
-        text.save('text.mp3')
+        text.save(os.getcwd() + os.sep + 'text.mp3')
 
     def say(self):
-        f = self.player.load('text.mp3', streaming=False)
+        f = self.player.load(os.getcwd() + os.sep + 'text.mp3', streaming=False)
         f.play()
+        return f.duration
