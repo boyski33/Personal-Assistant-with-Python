@@ -14,3 +14,9 @@ MULTIPLE_LOCAL_PHOTOS = 'Multiple local photos'
 SINGLE_URL_SOURCE_PHOTO = 'Single url source photo'
 EMBEDDED_VIDEO = 'Embedded video'
 LOCAL_VIDEO = 'Local video'
+
+# KEYS
+
+KEY_GOOGLE = "AIzaSyDhIrlQru9lkHTRgQk4WLBErPptHjfOUDk"
+KEY_BING = "e93f74f4ef204c459d79162d9fa3dd76"
+KEY_BING2 = "86ab65dede4c41eea14c315ad098ca83"
