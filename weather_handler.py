@@ -1,5 +1,7 @@
 import pywapi # Read about the API
 
+''' using weather.com get information about the current 
+    weather updated every 30 minutes '''
 
 class WeatherHandler(object):
     def __init__(self):
