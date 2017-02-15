@@ -3,9 +3,10 @@ from tumblr_keys import *
 from constants import SINGLE_LOCAL_PHOTO, MULTIPLE_LOCAL_PHOTOS, \
     SINGLE_URL_SOURCE_PHOTO, EMBEDDED_VIDEO, LOCAL_VIDEO
 
-
+''' Post different types of Tumblr posts '''
 class TumblrAPIHandler(object):
     def __init__(self):
+        #create a client using the given keys from the tumblr API
         self.client = pytumblr.TumblrRestClient(
             consumer_key, consumer_secret,
             token_key, token_secret)
